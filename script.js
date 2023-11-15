@@ -1,15 +1,13 @@
 //DOM Elements
 const circles = document.querySelectorAll(".circle"),
-  progressBar = document.querySelector(".indicator"),
+  progressBar = document.querySelector(".progress-bar .indicator"), // Perbarui pemilihan elemen progress bar
   buttons = document.querySelectorAll("button");
-
-  // console.log(circles, progressBar, buttons);
 
 let currentStep = 1;
 
 const updateSteps = (e) => {
   currentStep = e.target.id === "next" ? ++ currentStep : --currentStep;
-  circles.forEach((circle,index) => {
+  circles.forEach((circle, index) => {
     circle.classList[`${index < currentStep ? "add" : "remove"}`]("active");
   });
 
@@ -25,5 +23,5 @@ const updateSteps = (e) => {
 };
 
 buttons.forEach((button) => {
-  button.addEventListener("click", updateSteps)
+  button.addEventListener("click", updateSteps);
 });

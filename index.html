@@ -4,25 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>multipage</title>
+    <title>survey form</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <script src="script.js" defer></script>
 </head>
 <body>
      <div class="container">
-        <div class="steps">
-            <span class="circle active">1</span>
-            <span class="circle">2</span>
-            <span class="circle">3</span>
-            <span class="circle">4</span>
-            <div class="progress-bar">
-                <span class="indicator"></span>
+        <header>Survey Form</header>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="steps">
+                <span class="circle active">1</span>
+                <span class="circle">2</span>
+                <span class="circle">3</span>
+                <span class="circle">4</span>
+                <div class="bar">
+                    <span class="indicator"></span>
+                </div>
             </div>
         </div>
-        <div class="buttons">
-            <button id="prev" disabled>Prev</button>
-            <button id="next">Next</button>
-         </div>
+
+        <!-- Form -->
+        <form action="#">
+            <div class="first">
+                <div class="details personal">
+                    <span class="title">Kemahasiswaan</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Nama Lengkap</label>
+                            <input type="text" placeholder="Ketikkan nama Anda" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select required>
+                                <option value="" disabled selected>Gender</option>
+                                <option value="male">Laki-laki</option>
+                                <option value="female">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>RTYUI</label>
+                            <input type="text" placeholder="Ketikkan nama Anda" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Nama Lengkap</label>
+                            <input type="text" placeholder="Ketikkan nama Anda" required>
+                        </div>
+                        <div class="input-field">
+                            <label>ABCD</label>
+                            <input type="text" placeholder="Ketikkan nama Anda" required>
+                        </div>
+                        <div class="input-field">
+                            <label>RTYUI</label>
+                            <input type="text" placeholder="Ketikkan nama Anda" required>
+                        </div>
+                    </div>
+                    
+                    <!-- <button class="nextbtn">
+                        <span class="btnText"></span>
+                        <i class="uil uil-navigator"></i>
+                    </button> -->
+
+                    <div class="buttons">
+                        <button id="prev" disabled>Prev</button>
+                        <button id="next">Next</button>
+                     </div>
+                </div>
+            </div>
+        </form>
      </div>
 </body>
 </html>

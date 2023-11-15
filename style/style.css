@@ -7,14 +7,223 @@
 }
 
 body{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f6f7fb;
+    background: #4070f4;
 }
 
 .container{
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+}
+
+.container header{
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+}
+
+.container form{
+    position: relative;
+    margin-top: 30px;
+    min-height: 490px;
+    background-color: #fff;
+}
+
+.container form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+
+.container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form .fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+form .fields .input-field{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+.input-field label{
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.input-field input{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.input-field select {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.input-field input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.input-field select:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* .container form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #4070f4;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+form button:hover{
+    background-color: #265df2;
+}
+
+form button i{
+    margin: 0 6px;
+} */
+
+.container .progress-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 300px;
+    width: 100%;
+    margin: 30px auto;
+    position: relative;
+}
+
+.container .progress-bar .steps{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+}
+
+.steps .circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    color: #999;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 50%;
+    background: #fff;
+    border: 4px solid #e0e0e0;
+    transition-delay: 0s;
+    position: relative;
+    z-index: 1;
+}
+
+.steps .circle.active{
+    transition-delay: 100ms;
+    border-color: #4070f4;
+    color: #4070f4;
+}
+
+.steps .bar{
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #e0e0e0;
+}
+
+.bar .indicator{
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #4070f4;
+    transition: all 300ms ease;
+}
+
+.container .buttons{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttons button{
+    padding: 8px 25px;
+    background: #4070f4;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transition: all 200ms linear;
+}
+
+form button:hover{
+    background-color: #265df2;
+}
+
+.buttons button:active{
+    transform: scale(0.97);
+}
+
+.buttons button:disabled{
+    background: #87a5f8;
+    cursor: not-allowed;
+}
+
+/* 
+.progress-bar{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +232,7 @@ body{
     width: 100%;
 }
 
-.container .steps{
+.progress-bar .steps{
     display: flex;
     width: 100%;
     align-items: center;
@@ -52,7 +261,7 @@ body{
     color: #4070f4;
 }
 
-.steps .progress-bar{
+.steps .bar{
     position: absolute;
     height: 4px;
     width: 100%;
@@ -60,37 +269,10 @@ body{
     z-index: -1;
 }
 
-.progress-bar .indicator{
+.bar .indicator{
     position: absolute;
     height: 100%;
     width: 0%;
     background: #4070f4;
     transition: all 300ms ease;
-}
-
-.container .buttons{
-    display: flex;
-    gap: 20px;
-}
-
-.buttons button{
-    padding: 8px 25px;
-    background: #4070f4;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 400;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-    transition: all 200ms linear;
-}
-
-.buttons button:active{
-    transform: scale(0.97);
-}
-
-.buttons button:disabled{
-    background: #87a5f8;
-    cursor: not-allowed;
-}
+} */
