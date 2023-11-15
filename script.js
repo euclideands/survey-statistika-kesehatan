@@ -1,72 +1,41 @@
-const slidePage = document.querySelector(".slide-page");
-const nextBtnFirst = document.querySelector(".firstNext");
-const prevBtnSec = document.querySelector(".prev-1");
-const nextBtnSec = document.querySelector(".next-1");
-const prevBtnThird = document.querySelector(".prev-2");
-const nextBtnThird = document.querySelector(".next-2");
-const prevBtnFourth = document.querySelector(".prev-3");
-const submitBtn = document.querySelector(".submit");
-const progressText = document.querySelectorAll(".step p");
-const progressCheck = document.querySelectorAll(".step .check");
-const bullet = document.querySelectorAll(".step .bullet");
-let current = 1;
+//DOM Elements
+const circles = document.querySelectorAll(".circle"),
+  progressBar = document.querySelector(".indicator"),
+  buttons = document.querySelectorAll(".buttons");
 
-nextBtnFirst.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-nextBtnSec.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-nextBtnThird.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-75%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
-submitBtn.addEventListener("click", function(){
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-  setTimeout(function(){
-    alert("Your Form Successfully Signed up");
-    location.reload();
-  },800);
+  // console.log(circles, progressBar, buttons);
+
+  let currentStep = 1;
+
+  const updateSteps = (e) => {
+    currentStep = e.target.id === "next" ? ++ currentStep : --currentStep;
+    circles.forEach((circle,index) => {
+      circle.classList[`${index < currentStep ? "add" : "remove"}`]("active");
+    });
+    progressBar.style.width = `${((currentStep - 1) / (circles.length - 1)) * 100}%`
+  };
+
+buttons.forEach((button) => {
+  button.addEventListener("click", updateSteps)
 });
 
-prevBtnSec.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "0%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
-prevBtnThird.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
-prevBtnFourth.addEventListener("click", function(event){
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
+
+
+
+
+// let currentStep = 1;
+
+// // function that updates the current step and updates the DOM
+// const updateSteps = (e) => {
+//   // update current step based on the button clicked
+//   currentStep = e.target.id === "next" ? ++ currentStep : --currentStep;
+//   // loop 
+//   circles.forEach((circle, index) => {
+//     circle.classList[`${index < currentStep ? "add" : "remove"}`]("active");
+//   });
+// };
+  
+// // add click event listeners to all buttons
+// buttons.forEach((button) => {
+//   button.addEventListener("click", updateSteps)
+// });
