@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // Establish a connection to the SQL database
 $servername = "localhost";
 $username = "username";
@@ -30,3 +31,16 @@ $stmt->execute();
 // Close the statement and connection
 $stmt->close();
 $conn->close();
+=======
+
+error_reporting(0);
+
+//Database Configuration
+$db_name     = "db_kes";
+$host        = "localhost";
+$username    = "root";
+$password    = "";
+
+//make connection to database
+$conn         = mysqli_connect($host, $username, $password, $db_name) or die("Database connection error!");
+>>>>>>> 2570dc6add3ef0307c39a1b55977d78d923b3483
