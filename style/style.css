@@ -1,37 +1,119 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
   display: flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 50px;
   background: linear-gradient(135deg, #71b7e6, #ffffff);
 }
 
-.container{
+.container {
   max-width: 700px;
   width: 100%;
-background: #ffffff;
-padding: 25px 30px;
-border-radius: 5px;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 5px;
 }
 
-.container .title{
+.container .title {
   font-size: 25px;
   font-weight: 500;
   position: relative;
 }
 
-.container .title::before{
+.container .title::before {
   content: '';
   position: absolute;
   left: 0;
   bottom: 0;
+}
+
+.status-akademik,
+.tingkat-semester,
+.status-kipk,
+.status-beasiswa,
+.kegiatan-luarkampus {
+  text-align: justify;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  text-align: center;
+}
+
+.button input {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form input[type="radio"] {
+  margin-right: 10px;
+}
+
+.button input:hover {
+  background-color: #45a049;
+}
+
+form.status-akademik.category {
+  display: flex;
+  width: 80%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  height: auto;
+  overflow: hidden;
+  transition: all ease-in-out 0.3s;
+  font-weight: bolder;
+}
+
+.input-box {
+  position: relative;
+}
+
+.input {
+  width: 100%; /* Fixed a missing unit in width */
+  max-width: 300px;
+  box-sizing: border-box;
+  box-decoration-break: slice;
+  outline: none;
+  border: 1px solid #023523;
+  border-radius: 5px;
+}
+
+.placeholder {
+  position: absolute;
+  left: 8px;
+  font-size: 14px;
+  padding: 8px 5px;
+  transition: 0.3s;
+  pointer-events: none;
+  max-width: 200px;
+}
+
+.input:focus + .placeholder {
+  top: -10px;
+  color: #4070f4;
+  background-color: #fff;
 }

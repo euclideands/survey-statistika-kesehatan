@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <title>test</title>
+    <title>Survey</title>
 </head>
 <body>
     <div class="container">
@@ -14,78 +14,80 @@
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Nama Lengkap</span>
-                    <input type="text" placeholder="Ketikkan nama Anda" required>
+                    <input type="text" placeholder="masukkan nama" class="input">
+                    <label class="placeholder"></label>
                 </div>
                 <div class="input-box">
                     <span class="details">NIM</span>
-                    <input type="text" placeholder="Ketikan NIM Anda" required>
+                    <input type="text" placeholder="masukkan nim" class="input">
+                    <label class="placeholder"></label>
                 </div>
                 <div class="status-akademik">
-                    <span class="status-akademik-title">Status Akademik</span>
+                    <span class="details">Status Akademik</span>
                     <div class="category">
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="mahasiswa-aktif">
+                            <input type="radio" id="mahasiswa-aktif" name="status-akademik" class="dot one" value="Mahasiswa Aktif">
                             <span class="status-akademik">Mahasiswa Aktif</span>
                         </label>
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="cuti-studi">
+                            <input type="radio" id="cuti-studi" name="status-akademik" class="dot one" value="Cuti Studi">
                             <span class="status-akademik">Cuti Studi</span>
                         </label>
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="mbkm">
+                            <input type="radio" id="mbkm" name="status-akademik" class="dot one" value="Mahasiswa Program MBKM">
                             <span class="status-akademik">Mahasiswa Program MBKM</span>
                         </label>
                 </div>
                 <div class="tingkat-semester">
-                    <span class="tingkat-semester-title">Status Akademik</span>
+                    <span class="details">Tingkat Semester</span>
                     <div class="category">
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="tingkat-semester">
+                            <input type="radio" id="tingkat-semester" name="tingkat-semester" class="dot one" value="Semester 1">
                             <span class="tingkat-semester">Semester 1</span>
                         </label>
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="tingkat-semester">
+                            <input type="radio" id="tingkat-semester" name="tingkat-semester" class="dot one" value="Semester 2">
                             <span class="tingkat-semester">Semester 2</span>
                         </label>
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="tingkat-semester">
+                            <input type="radio" id="tingkat-semester" name="tingkat-semester" class="dot one" value="Semester 3">
                             <span class="tingkat-semester">Semester 3</span>
                         </label>
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="tingkat-semester">
+                            <input type="radio" id="tingkat-semester" name="tingkat-semester" class="dot one" value="Semester 4">
                             <span class="tingkat-semester">Semester 4</span>
                         </label>
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="tingkat-semester">
+                            <input type="radio" id="tingkat-semester" name="tingkat-semester" class="dot one" value="Semester 5">
                             <span class="tingkat-semester">Semester 5</span>
                         </label>
                 </div>
                 <div class="status-kipk">
-                    <span class="status-kipk-title">Status Penerimaan KIPK</span>
+                    <span class="details">Status Penerimaan KIPK</span>
                     <div class="category">
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="status-kipk">
+                            <input type="radio" id="status-kipk" name="status-penerimaan-kipk" class="dot one" value="Penerima KIPK">
                             <span class="status-kipk">Penerima KIPK</span>
                         </label>
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="status-kipk">
+                            <input type="radio" id="status-kipk" name="status-penerimaan-kipk" class="dot one" value="Bukan Penerima KIPK">
                             <span class="status-kipk">Bukan Penerima KIPK</span>
                         </label>
                 </div>
                 <div class="status-beasiswa">
-                    <span class="status-beasiswa-title">Status Penerimaan Beasiswa</span>
+                    <span class="details">Status Penerimaan Beasiswa</span>
                     <div class="category">
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="status-beasiswa">
+                            <input type="radio" id="status-beasiswa" name="status-penerimaan-beasiswa" class="dot one" value="Penerima Beasiswa">
                             <span class="status-beasiswa">Penerima Beasiswa</span>
                         </label>
-                        <label for="">
-                            <span class="dot one"></span>
+                        <label for="status-beasiswa">
+                            <input type="radio" id="status-beasiswa" name="status-penerimaan-beasiswa" class="dot one" value="Bukan Penerima Beasiswa">
                             <span class="status-beasiswa">Bukan Penerima Beasiswa</span>
                         </label>
                 </div>
                 <div class="kegiatan-luarkampus">
-                    <span class="kegiatan-luarkampus-title">Kegiatan di luar perkuliahan</span>
+                    <span class="details">Kegiatan di luar perkuliahan</span>
                     <div class="category">
                         <label for="bemkm">
                             <input type="checkbox" id="bemkm" name="kegiatan[]" value="BEM KM">
@@ -128,12 +130,12 @@
                             <span class="kegiatan-luarkampus">Organisasi luar kampus</span>
                         </label>
                 </div>
+                
             </div>
             <div class="button">
                 <input type="submit" value="Next">
             </div>
         </form>
     </div>
-    hello world
 </body>
 </html>
