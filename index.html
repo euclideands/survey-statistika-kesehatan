@@ -29,36 +29,59 @@
         <!-- Form -->
         <form action="#">
             <div class="first">
-                <div class="details personal">
+                <div class="kemahasiswaan">
                     <span class="title">Kemahasiswaan</span>
                     <div class="fields">
                         <div class="input-field">
-                            <label>Nama Lengkap</label>
-                            <input type="text" placeholder="Ketikkan nama Anda" required>
+                            <label>NIM</label>
+                            <input type="text" placeholder="" required>
                         </div>
                         <div class="input-field">
-                            <label>Gender</label>
-                            <select required>
+                            <label>Nama</label>
+                            <input type="text" placeholder="" required>
+                            <!-- <select required>
                                 <option value="" disabled selected>Gender</option>
                                 <option value="male">Laki-laki</option>
                                 <option value="female">Perempuan</option>
+                            </select> -->
+                        </div>
+                        <div class="input-field">
+                            <label>Tingkat Semester</label>
+                            <input type="text" placeholder="" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Status Akademik</label>
+                            <select required>
+                                <option value="" disabled selected>-select here-</option>
+                                <option value="aktif">Mahasiswa aktif</option>
+                                <option value="cuti">Cuti studi</option>
+                                <option value="mbkm">Mahasiswa MBKM </option>
                             </select>
                         </div>
                         <div class="input-field">
-                            <label>RTYUI</label>
-                            <input type="text" placeholder="Ketikkan nama Anda" required>
+                            <label>Status Penerimaan KIPK</label>
+                            <select required>
+                                <option value="" disabled selected>-select here-</option>
+                                <option value="kipk">Penerima KIPK</option>
+                                <option value="nonkipk">Tidak Menerima KIPK</option>
+                            </select>
                         </div>
                         <div class="input-field">
-                            <label>Nama Lengkap</label>
-                            <input type="text" placeholder="Ketikkan nama Anda" required>
+                            <label>Status Penerimaan Beasiswa</label>
+                            <select required>
+                                <option value="" disabled selected>-select here-</option>
+                                <option value="beasiswa">Penerima Beasiswa</option>
+                                <option value="nonbeasiswa">Tidak Menerima Beasiswa</option>
+                            </select>
                         </div>
                         <div class="input-field">
-                            <label>ABCD</label>
-                            <input type="text" placeholder="Ketikkan nama Anda" required>
-                        </div>
-                        <div class="input-field">
-                            <label>RTYUI</label>
-                            <input type="text" placeholder="Ketikkan nama Anda" required>
+                            <label>Kegiatan di Luar Perkuliahan</label>
+                            <select required>
+                                <option value="" disabled selected>-select here-</option>
+                                <option value="beasiswa">Penerima Beasiswa</option>
+                                <option value="nonbeasiswa">Tidak Menerima Beasiswa</option>
+                            </select>
                         </div>
                     </div>
                     
@@ -70,9 +93,65 @@
                     <div class="buttons">
                         <button id="prev" disabled>Prev</button>
                         <button id="next">Next</button>
-                     </div>
+                    </div>
                 </div>
             </div>
+
+                <div class="second">
+                    <div class="demografi">
+                        <span class="title">Demografi</span>
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>Jenis kelamin</label>
+                                <select required>
+                                    <option value="" disabled selected>-select here-</option>
+                                    <option value="laki">Laki-laki</option>
+                                    <option value="perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label>Usia</label>
+                                <input type="text" placeholder="" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Asal daerah</label>
+                                <select required>
+                                    <option value="" disabled selected>-select here-</option>
+                                    <option value="paruhWaktu">Bekerja paruh waktu</option>
+                                    <option value="penuhWaktu">Bekerja penuh waktu</option>
+                                    <option value="tidakBekerja">Tidak bekerja</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label>Status pekerjaan</label>
+                                <select required>
+                                    <option value="" disabled selected>-select here-</option>
+                                    <option value="paruhWaktu">Bekerja paruh waktu</option>
+                                    <option value="penuhWaktu">Bekerja penuh waktu</option>
+                                    <option value="tidakBekerja">Tidak bekerja</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label>ABCD</label>
+                                <input type="text" placeholder="Ketikkan nama Anda" required>
+                            </div>
+                            <div class="input-field">
+                                <label>RTYUI</label>
+                                <input type="text" placeholder="Ketikkan nama Anda" required>
+                            </div>
+                        </div>
+                        
+                        <!-- <button class="nextbtn">
+                            <span class="btnText"></span>
+                            <i class="uil uil-navigator"></i>
+                        </button> -->
+    
+                        <div class="buttons">
+                            <button id="prev" disabled>Prev</button>
+                            <button id="next">Next</button>
+                         </div>
+                    </div>
+                </div>
         </form>
      </div>
 </body>

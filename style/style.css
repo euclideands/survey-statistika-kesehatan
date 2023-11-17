@@ -40,6 +40,16 @@ body{
     background-color: #fff;
 }
 
+.container form .form{
+    position: absolute;
+    background-color: #fff;
+}
+
+.container form .form.second{
+    opacity: 0;
+    pointer-events: none;
+}
+
 .container form .title{
     display: block;
     margin-bottom: 8px;
