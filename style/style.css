@@ -117,3 +117,25 @@ form.status-akademik.category {
   color: #4070f4;
   background-color: #fff;
 }
+
+.dropdown {
+  position: absolute;
+  z-index: 999;
+  bottom: 60px;
+  right: 0;
+  width: 100%;
+  margin-top: 10px;
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out;
+}
