@@ -41,8 +41,8 @@ include 'multiselect/header.php';
 
 <body>
     <div class="container">
-        <form id="regForm" action="connection.php" method="post" autocomplete="off">
-            <div class="form_1">
+        <form id="regForm" action="connection.php" method="post">
+            <div class="form">
                 <span class="title">Kemahasiswaan</span>
                 <div class="tab">
                     <div class="input-field">
@@ -103,13 +103,13 @@ include 'multiselect/header.php';
                 </div>
                 <!-- Next and Previous buttons -->
                 <div style="overflow:auto;">
-                    <div style="float:right;">
+                    <div style="float:center;">
                         <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                         <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                     </div>
                 </div>
             </div>
-            <div class="form_2">
+            <div class="form">
                 <span class="title">Demografi</span>
                 <div class="tab">
                     <div class="input-field">
@@ -123,7 +123,7 @@ include 'multiselect/header.php';
                     <div class="input-field">
                         <label for="">Usia</label>
                         <input type="number" id="usia" name="usia" placeholder="usia" required>
-                    </div> 
+                    </div>
                     <div class="input-field">
                         <label for="">Asal Daerah</label>
                         <select class="" name="asal_daerah" required>
@@ -169,7 +169,7 @@ include 'multiselect/header.php';
                     </div>
                 </div>
             </div>
-            <div class="form_3">
+            <div class="form">
                 <span class="title">Kecemasan (Anxiety)</span>
                 <div class="tab">
                     <div class="input-field">
@@ -229,7 +229,7 @@ include 'multiselect/header.php';
                     </div>
                 </div>
             </div>
-            <div class="form_4">
+            <div class="form">
                 <span class="title">Coping Mechanism</span>
                 <div class="tab">
 
@@ -243,44 +243,130 @@ include 'multiselect/header.php';
                 </div>
             </div>
         </form>
+        <script>
+            var currentForm = 0; // Current form is set to be the first form (0)
+            showForm(currentForm); // Display the current form
+
+            function showForm(n) {
+                // This function will display the specified form of the form...
+                var x = document.getElementsByClassName("form");
+                x[n].style.display = "block";
+                //... and fix the Previous/Next buttons:
+                if (n == 0) {
+                    document.getElementById("prevBtn").style.display = "none";
+                } else {
+                    document.getElementById("prevBtn").style.display = "inline";
+                }
+                if (n == (x.length - 1)) {
+                    document.getElementById("nextBtn").innerHTML = "Submit";
+                } else {
+                    document.getElementById("nextBtn").innerHTML = "Next";
+                }
+                //... and run a function that will display the correct step indicator:
+                fixStepIndicator(n)
+            }
+
+            function nextPrev(n) {
+                // This function will figure out which form to display
+                var x = document.getElementsByClassName("form");
+                // Exit the function if any field in the current form is invalid:
+                if (n == 1 && !validateForm()) return false;
+                // Hide the current form:
+                x[currentForm].style.display = "none";
+                // Increase or decrease the current form by 1:
+                currentForm = currentForm + n;
+                // if you have reached the end of the form...
+                if (currentForm >= x.length) {
+                    // ... the form gets submitted:
+                    document.getElementById("regForm").submit();
+                    return false;
+                }
+                // Otherwise, display the correct form:
+                showForm(currentForm);
+            }
+
+            function validateForm() {
+                // This function deals with validation of the form fields
+                var x, y, i, valid = true;
+                x = document.getElementsByClassName("form");
+                y = x[currentForm].getElementsByTagName("input");
+                // A loop that checks every input field in the current form:
+                for (i = 0; i < y.length; i++) {
+                    // If a field is empty...
+                    if (y[i].value == "") {
+                        // add an "invalid" class to the field:
+                        y[i].className += " invalid";
+                        // and set the current valid status to false
+                        valid = false;
+                    }
+                }
+                // If the valid status is true, mark the step as finished and valid:
+                if (valid) {
+                    document.getElementsByClassName("step")[currentForm].className += " finish";
+                }
+                return valid; // return the valid status
+            }
+
+            function fixStepIndicator(n) {
+                // This function removes the "active" class of all steps...
+                var i, x = document.getElementsByClassName("step");
+                for (i = 0; i < x.length; i++) {
+                    x[i].className = x[i].className.replace(" active", "");
+                }
+                //... and adds the "active" class on the current step:
+                x[n].className += " active";
+            }
+        </script>
     </div>
     <script>
-        var currentTab = 0;
-        showTab(currentTab); // Display the current tab
+        $(function() {
+            // Inisialisasi elemen autocomplete dengan sumber yang kosong
+            $("#nim").autocomplete({
+                source: [],
+                minLength: 1,
+                select: function(event, ui) {
+                    autofill(ui.item.value);
+                }
+            });
 
-        function showTab(n) {
-            var tabs = document.getElementsByClassName("tab");
-            // tabs[n].style.display = "block";
-
-            if (n === 0) {
-                document.getElementById("prevBtn").disabled = true;
-            } else {
-                document.getElementById("prevBtn").disabled = false;
+            function autofill(nim) {
+                $.ajax({
+                    url: "connection.php",
+                    method: "POST",
+                    data: {
+                        nim: nim
+                    },
+                    dataType: "JSON",
+                    success: function(data) {
+                        // Hanya mengisi nilai jika objek autofill tidak kosong
+                        if (data.autofill && Object.keys(data.autofill).length !== 0) {
+                            $('#nama').val(data.autofill.nama);
+                            $('#angkatan').val(data.autofill.angkatan);
+                        }
+                    }
+                });
             }
 
-            if (n === tabs.length - 1) {
-                document.getElementById("nextBtn").innerHTML = "Submit";
-            } else {
-                document.getElementById("nextBtn").innerHTML = "Next";
-            }
-        }
-
-        function nextPrev(n) {
-            var tabs = document.getElementsByClassName("tab");
-            tabs[currentTab].style.display = "none";
-
-            currentTab = currentTab + n;
-
-            if (currentTab >= tabs.length) {
-                // Submit the form if we are on the last tab
-                document.getElementById("regForm").submit();
-                return false;
-            }
-
-            showTab(currentTab);
-        }
+            // Load data autocomplete saat halaman pertama kali dibuka
+            $.ajax({
+                url: "connection.php",
+                method: "POST",
+                dataType: "JSON",
+                success: function(data) {
+                    // Set sumber autocomplete dengan data.autocomplete
+                    $("#nim").autocomplete({
+                        source: data.autocomplete,
+                        minLength: 1,
+                        select: function(event, ui) {
+                            autofill(ui.item.value);
+                        }
+                    });
+                }
+            });
+        });
     </script>
-
 </body>
+
 </html>
-<?php include('multiselect/footer.php'); ?>
+
+<?php include('multiselect/footer.php') ?>

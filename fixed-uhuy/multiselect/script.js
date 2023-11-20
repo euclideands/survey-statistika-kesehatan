@@ -1,5 +1,5 @@
 $(document).ready(function() {       
 	$('#kegiatan_luarkampus').multiselect({		
-		nonSelectedText: '- select -'				
+		nonSelectedText: '- multi select -'				
 	});
 });

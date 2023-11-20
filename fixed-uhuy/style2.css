@@ -1,99 +1,64 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #4070f4;
+body {
+/* background-color: #4070f4; */
+background-color: #f1f1f1;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
-.container{
-  position: relative;
-  max-width: 1200px;
-  width: 100%;
-  border-radius: 8px;
-  padding: 30px;
-  margin: 0 25px;
-  background-color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  max-height: 500px; /* Atur tinggi maksimum container di sini */
-  overflow-y: auto;
+#form {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 30px;
+    margin: 0px 25px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    max-height: 500px; /* Atur tinggi maksimum container di sini */
+    overflow-y: auto;
+/* background-color: #ffffff;
+margin: 100px auto;
+font-family: Raleway;
+padding: 40px;
+width: 70%;
+min-width: 300px; */
 }
 
-.container::-webkit-scrollbar {
-  width: 10px; /* Lebar scrollbar */
+#form::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar */
+}
+#form::-webkit-scrollbar-thumb {
+background-color: #e0e0e0; /* Warna latar belakang thumb scrollbar */
+border-radius: 5px; /* Border radius untuk thumb scrollbar */
+max-height: -3px;
+}
+#form::-webkit-scrollbar-track {
+background-color: #fff; /* Warna latar belakang track scrollbar */
+border-radius: 100px;
 }
 
-.container::-webkit-scrollbar-thumb {
-  background-color: #e0e0e0; /* Warna latar belakang thumb scrollbar */
-  border-radius: 3px; /* Border radius untuk thumb scrollbar */
-  max-height: -3px;
-}
-
-.container::-webkit-scrollbar-track {
-  background-color: #fff; /* Warna latar belakang track scrollbar */
-  border-radius: 100px;
-}
-.tab input{
-    width: 100%; 
-    padding: 10px;
-    margin-bottom: 14px;
-    box-sizing: border-box; 
-    border: 1px solid #ccc; 
-    border-radius: 4px;
-    background: linear-gradient(to bottom, #fefefe, #e3e3e3); 
-    color: #333; 
-    font-size: 14px; 
-}
-.tab select{
-width: 100%; 
-padding: 10px;
-margin-bottom: 14px;
-box-sizing: border-box; 
-border: 1px solid #ccc; 
-border-radius: 4px;
-background: linear-gradient(to bottom, #fefefe, #e3e3e3); 
-color: #333; 
-font-size: 14px; 
-}
-
-/* h5{
-color: #333;
-margin-bottom: 40px;
-font-size: 1px; 
-margin-left: 25px;
-}
-
-@media screen and (min-width: 192px) {
-h5 {
-    font-size: 32px;
-}
-}
-
-@media screen and (min-width: 256px) {
-h5 {
-    font-size: 40px;
-}
-} */
-
-.container form .title{
+#form .title{
 display: block;
 margin-bottom: 10px;
 font-size: 20px;
 font-weight: 500;
-margin: 8px 0px;
+/* margin: 20px 0px; */
+margin-top: 30px;
 margin-left: 25px;
 color: #333;
 }
 
-.tab {
+.tab{
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -101,34 +66,42 @@ flex-wrap: wrap;
 margin-left: 25px;
 margin-right: 25px;
 }
-
-.form-group{
-margin-left: 25px;
-margin-right: 25px;
+.tab {
+    display: none;
 }
-form .tab .input-field{
+.input-field{
 display: flex;
 width: calc(100% / 3 - 15px);
 flex-direction: column;
 margin: 4px 0;
 margin-left: 25px 25px;
 }
+
 .input-field label{
-font-size: 14px;
-font-weight: 500;
-color: #2e2e2e;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2e2e2e;
 }
+
+.form-group label{
+    font-size: 14px;
+    font-weight: 500;
+    color: #2e2e2e;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
 .input-field input,
 .input-field select{
-outline: none;
-font-size: 14px;
-font-weight: 400;
-color: #333;
-border-radius: 5px;
-border: 1px solid #aaa;
-padding: 0 15px;
-height: 35px;
-margin: 8px 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  padding: 0 15px;
+  height: 35px;
+  margin: 8px 0;
 }
 
 .input-field input:focus,
@@ -136,15 +109,109 @@ margin: 8px 0;
 .input-field input:valid,
 .input-field select:valid,
 .input-field input:not(:placeholder-shown){
-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
 
-.form-group label{
-font-size: 14px;
-font-weight: 500;
-color: #2e2e2e;
-margin-bottom: 10px;
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-  
-  
-  
+.header h1{
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+
+  .step.active {
+    opacity: 1;
+  }
+
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: #04AA6D;
+  }
+
+
+
+
+
+
+
+input.invalid,
+select.invalid,
+.form-group select.invalid{
+    background-color: #ffdddd;
+}
+
+  .tab {
+    display: none;
+  }
+
+  button {
+    background-color: #04AA6D;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  #prevBtn {
+    background-color: #bbbbbb;
+  }
+
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+
+  .step.active {
+    opacity: 1;
+  }
+
+  .step.finish {
+    background-color: #04AA6D;
+  }
+
+
+
+
+
+.header .step {
+    width: 20px;
+    height: 20px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.header .step.active {
+    background-color: #4CAF50;
+}
