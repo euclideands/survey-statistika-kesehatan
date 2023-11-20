@@ -1,34 +1,63 @@
-//DOM Elements
-const circles = document.querySelectorAll(".circle"),
-  progressBar = document.querySelector(".progress-bar .indicator"), // Perbarui pemilihan elemen progress bar
-  buttons = document.querySelectorAll("button");
-  forms = document.querySelectorAll(".details");
+const form = document.querySelector("form"),
+      nextBtn = document.getElementById("nextBtn"),
+      backBtn = document.getElementById("backBtn"),
+      allInputs = form.querySelectorAll(".first input"),
+      circles = document.querySelectorAll(".circle"),
+      progressBar = document.querySelector(".indicator");
 
 let currentStep = 1;
 
+// function that updates the current step and updates the DOM
 const updateSteps = (e) => {
-  currentStep = e.target.id === "next" ? ++ currentStep : --currentStep;
+  // update current step based on the button clicked
+  currentStep = e.target.id === "next" ? ++currentStep : --currentStep;
+
+  // loop through all circles and add/remove "active" class based on their index and current step
   circles.forEach((circle, index) => {
-    circle.classList[`${index < currentStep ? "add" : "remove"}`]("active");
-  });
-  forms.forEach((form) => {
-    form.style.display = "none";
+    if (index < currentStep) {
+      circle.classList.add("active");
+    } else {
+      circle.classList.remove("active");
+    }
   });
 
-  // Menunjukkan form yang sesuai dengan langkah saat ini
-  forms[currentStep - 1].style.display = "block";
-
+  // update progress bar width based on current step
   progressBar.style.width = `${((currentStep - 1) / (circles.length - 1)) * 100}%`;
 
+  // check if the current step is the last step or first step and disable corresponding buttons
   if (currentStep === circles.length) {
-    buttons[1].disabled = true;
+    nextBtn.disabled = true;
   } else if (currentStep === 1) {
-    buttons[0].disabled = true;
+    backBtn.disabled = true;
   } else {
-    buttons.forEach((button) => (button.disabled = false));
+    nextBtn.disabled = false;
+    backBtn.disabled = false;
+  }
+
+  // toggle secActive class based on input values
+  if (currentStep === 1) {
+    form.classList.remove('secActive');
+  } else {
+    form.classList.add('secActive');
   }
 };
 
-buttons.forEach((button) => {
+// add click event listeners to all buttons
+[nextBtn, backBtn].forEach((button) => {
   button.addEventListener("click", updateSteps);
 });
+
+nextBtn.addEventListener("click", () => { 
+  // progress bar 
+
+  // page
+  allInputs.forEach(input => {
+    if (input.value != "") {
+      form.classList.add('secActive');
+    } else {
+      form.classList.remove('secActive');
+    }
+  })
+});
+
+backBtn.addEventListener("click", () => form.classList.remove('secActive'));
