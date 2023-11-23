@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Survey Mahasiswa</title>
+</head>
+<body>
+
+<form action="proses_form.php" method="post">
+    <label for="kegiatan">Pilih Kegiatan di Luar Perkuliahan:</label>
+    <select name="kegiatan" id="kegiatan">
+        <option value="organisasi_kemahasiswaan">Organisasi Kemahasiswaan</option>
+        <option value="ukm">UKM</option>
+        <!-- Tambahkan opsi lainnya di sini -->
+        <option value="lainnya">Lainnya</option>
+    </select>
+
+    <br>
+
+    <label for="kegiatan_lainnya">Jika Lainnya, Sebutkan:</label>
+    <input type="text" name="kegiatan_lainnya" id="kegiatan_lainnya">
+
+    <br>
+
+    <input type="submit" value="Kirim Jawaban">
+</form>
+
+</body>
+</html>

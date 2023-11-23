@@ -14,9 +14,8 @@ if ($conn->connect_error) {
 $query = "SELECT * FROM `test_fixed`";
 $result = mysqli_query($conn, $query);
 $options = "";
-while($row2 = mysqli_fetch_array($result))
-{
-    $options = $options."<option>$row2[0]</option>";
+while ($row2 = mysqli_fetch_array($result)) {
+    $options = $options . "<option>$row2[0]</option>";
 }
 
 // Nim untuk autocomplete
@@ -24,7 +23,7 @@ $nimForAutocomplete = isset($_POST['nim']) ? trim(strip_tags($_POST['nim'])) : '
 $queryAutocomplete = mysqli_query($conn, "SELECT nim FROM test_fixed WHERE nim LIKE '%$nimForAutocomplete%'");
 
 $arrayAutocomplete = array();
-while ($dataAutocomplete = mysqli_fetch_assoc($queryAutocomplete)){
+while ($dataAutocomplete = mysqli_fetch_assoc($queryAutocomplete)) {
     $arrayAutocomplete[] = $dataAutocomplete['nim'];
 }
 
@@ -33,7 +32,7 @@ $nimForAutofill = isset($_POST['nim']) ? $_POST['nim'] : '';
 $dataAutofill = array(); // Inisialisasi array untuk autofill
 if ($nimForAutofill != '') {
     $queryAutofill = mysqli_query($conn, "SELECT * FROM test_fixed WHERE nim='$nimForAutofill'");
-    
+
     // Tambahkan kondisi untuk memeriksa apakah ada hasil dari kueri autofill sebelum menginisialisasi array
     if ($queryAutofill && mysqli_num_rows($queryAutofill) > 0) {
         $dataAutofill = mysqli_fetch_assoc($queryAutofill);
@@ -51,26 +50,45 @@ if (!empty($arrayAutocomplete) || !empty($dataAutofill)) {
     echo json_encode($response);
 }
 
-if (isset($_POST["submit"])) {
-    $nim = stripslashes($_POST["nim"]);
+
+// Assuming $conn is a valid database connection
+    // Retrieve and sanitize form data
+    $nim = isset($_POST["nim"]) ? trim(strip_tags($_POST["nim"])) : '';
+    $nama = isset($_POST["nama"]) ? ucfirst($_POST["nama"]) : '';
+    $angkatan = isset($_POST["angkatan"]) ? $_POST["angkatan"] : '';
     $status_akademik = isset($_POST["status_akademik"]) ? $_POST["status_akademik"] : '';
     $kipk = isset($_POST["kipk"]) ? $_POST["kipk"] : '';
     $beasiswa = isset($_POST["beasiswa"]) ? $_POST["beasiswa"] : '';
-    
-    // Inisialisasi $kegiatan_luarkampus sebagai array jika tidak ada input yang dichecked
+
     $kegiatan_luarkampus = isset($_POST["kegiatan_luarkampus"]) ? $_POST["kegiatan_luarkampus"] : array();
+    $kegiatan = is_array($kegiatan_luarkampus) ? implode(',', $kegiatan_luarkampus) : '';
 
-    $kegiatan = implode(",", $kegiatan_luarkampus);
+    $selected_value = isset($_POST["selected_value"]) ? $_POST["selected_value"] : array();
+    $select = is_array($selected_value) ? implode(',', $selected_value) : '';
 
-    // // Print SQL statement for debugging
-    // echo "SQL: UPDATE test_fixed SET status_akademik = '$status_akademik', kipk = '$kipk', beasiswa = '$beasiswa', kegiatan_luarkampus = '$kegiatan' WHERE nim = '$nim'";
+    $testla = isset($_POST["testla"]) ? $_POST["testla"] : '';
+    $other = isset($_POST["other"]) ? trim(strip_tags($_POST["other"])) : '';
 
-    $sql = "UPDATE test_fixed SET status_akademik = '$status_akademik', kipk = '$kipk', beasiswa = '$beasiswa', kegiatan_luarkampus = '$kegiatan' WHERE nim = '$nim'";
-    
-    // if ($conn->query($sql) === TRUE) {
-    //     echo "Jawaban berhasil disimpan.";
-    // } else {
-    //     echo "Error: " . $sql . "<br>" . $conn->error;
-    // }
-}
+    $sql = "UPDATE test_fixed 
+            SET status_akademik = '$status_akademik', kipk = '$kipk', beasiswa = '$beasiswa', kegiatan_luarkampus = '$kegiatan', selected_value='$select', testla='$testla', other='$other'
+            WHERE nim = '$nim'";
+
+    // Jika NIM tidak ada, gunakan INSERT untuk menambahkan data baru
+    if ($conn->query($sql) === TRUE) {
+        if ($conn->affected_rows == 0) {
+            // Jika tidak ada baris yang terpengaruh, NIM tidak ditemukan, lakukan INSERT
+            $sql_insert = "INSERT INTO test_fixed (nim, nama, angkatan, status_akademik, kipk, beasiswa, kegiatan_luarkampus, selected_value, testla, other) VALUES ('$nim', '$nama', '$angkatan', '$status_akademik', '$kipk', '$beasiswa', '$kegiatan', '$select', '$testla', '$other')";
+
+            if ($conn->query($sql_insert) === TRUE) {
+                echo "Data berhasil disimpan.";
+            } else {
+                echo "Error: " . $sql_insert . "<br>" . $conn->error;
+            }
+        } else {
+            echo "Data berhasil diperbarui.";
+        }
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
 ?>

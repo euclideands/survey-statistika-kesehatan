@@ -31,7 +31,7 @@ include 'multiselect/header.php';
         });
     </script>
     <style media="screen">
-        label {
+        .form-group label {
             display: flex;
         }
     </style>
@@ -42,22 +42,23 @@ include 'multiselect/header.php';
         <div class="header">
             <h1>Suvei Kesehatan Mental</h1>
             <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align:right;margin-top:10px;">
+            <div class="bullet">
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
             </div>
         </div>
-        <span id="titleSpan" class="title">Kemahasiswaan</span>
+        <span class="title">Data Mahasiswa</span>
         <div class="tab">
             <div class="input-field">
                 <label for="">NIM</label>
-                <input type="text" id="nim" name="nim" onchange="autofill()" placeholder="nim" required>
+                <input type="text" id="nim" name="nim" placeholder="nim" required>
             </div>
             <div class="input-field">
                 <label for="">Nama</label>
-                <input type="text" id="nama" name="nama" required value="" placeholder="nama" required>
+                <input typ
+                e="text" id="nama" name="nama" required value="" placeholder="nama" required>
             </div>
             <div class="input-field">
                 <label for="">Angkatan</label>
@@ -109,7 +110,6 @@ include 'multiselect/header.php';
         </div>
         <span class="title">Demografi</span>
         <div class="tab">
-            <span class="title">Demografi</span>
             <div class="input-field">
                 <label for="">Jenis Kelamin</label>
                 <select class="" name="gender" required>
@@ -159,26 +159,368 @@ include 'multiselect/header.php';
                 </select>
             </div>
         </div>
+        <span class="title">Parameter Kesehatan Mental</span>
         <div class="tab">
-            <span class="title">Kecemasan (Anxiety)</span>
-            <div class="input-field">
-                <label for="">Seberapa sering kamu merasa panik?</label>
-                <!-- <input type="text" id="nim" name="nim" onchange="autofill()" placeholder="NIM" required> -->
-                <label for="">Seberapa sering kamu merasa gelisah?</label>
-                <label for="">Seberapa sering kamu merasa tidak memiliki gairah?</label>
-                <label for="">Seberapa sering kamu merasa tidak bisa tidur?</label>
+            <div class="rb-box">
+                <div id="rb-1" class="rb">
+                    <h3>Kecemasan (Anxiety)</h3>
+                    <h2>1: Sangat Tidak Setuju, 2: Tidak Setuju, 3: Netral, 4: Setuju, 5: Sangat Setuju</h2>
+                </div>
+                <div id="rb-2" class="rb">
+                    <p>Seberapa sering kamu merasa panik?</p>
+                    <input type="radio" name="p1" value="1" required>
+                    <label for="">1</label>
+                    <input type="radio" name="p1" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p1" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p1" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p1" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-3" class="rb">
+                    <p>Seberapa sering kamu merasa gelisah?</p>
+                    <input type="radio" name="p2" value="1" required>
+                    <label for="">1</label>
+                    <input type="radio" name="p2" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p2" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p2" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p2" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-4" class="rb">
+                    <p>Seberapa sering kamu merasa tidak memiliki gairah?</p>
+                    <input type="radio" name="p3" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p3" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p3" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p3" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p3" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-5" class="rb">
+                    <p>Seberapa sering kamu merasa tidak bisa tidur?</p>
+                    <input type="radio" name="p4" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p4" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p4" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p4" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p4" value="5">
+                    <label for="">5</label>
+                </div>
+            </div>
+            <div class="rb-box">
+                <div id="rb-6" class="rb">
+                    <h3>Depresi (Depression)</h3>
+                </div>
+                <div id="rb-7" class="rb">
+                    <p>Seberapa sering kamu merasa sedih?</p>
+                    <input type="radio" name="p5" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p5" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p5" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p5" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p5" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-8" class="rb">
+                    <p>Seberapa sering kamu merasa sangat kesepian?</p>
+                    <input type="radio" name="p6" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p6" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p6" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p6" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p6" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-9" class="rb">
+                    <p>Seberapa sering kamu tidak memiliki harapan?</p>
+                    <input type="radio" name="p7" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p7" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p7" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p7" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p7" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-10" class="rb">
+                    <p>Seberapa sering kamu merasa putus asa?</p>
+                    <input type="radio" name="p8" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p8" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p8" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p8" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p8" value="5">
+                    <label for="">5</label>
+                </div>
+            </div>
+            <div class="rb-box">
+                <div id="rb-11" class="rb">
+                    <h3>Kehilangan kontrol perilaku (Lost of behavioral/emotional control)</h3>
+                </div>
+                <div id="rb-12" class="rb">
+                    <p>Seberapa sering kamu kehilangan kesabaran?</p>
+                    <input type="radio" name="p9" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p9" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p9" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p9" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p9" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-13" class="rb">
+                    <p>Seberapa sering kamu marah jika ada orang yang menyinggung perasaanmu?</p>
+                    <input type="radio" name="p10" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p10" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p10" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p10" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p10" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-14" class="rb">
+                    <p>Seberapa sering kamu tidak memikirkan dampak dari perbuatan yang kamu lakukan?</p>
+                    <input type="radio" name="p11" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p11" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p11" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p11" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p11" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-15" class="rb">
+                    <p>Seberapa sering kamu akan marah ketika apa yang kamu inginkan tidak tercapai?</p>
+                    <input type="radio" name="p12" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p12" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p12" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p12" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p12" value="5">
+                    <label for="">5</label>
+                </div>
+            </div>
+            <div class="rb-box">
+                <div id="rb-16" class="rb">
+                    <h3>Kepuasan hidup (Life satisfaction)</h3>
+                </div>
+                <div id="rb-17" class="rb">
+                    <p>Seberapa sering kamu merasa bahagia dalam menjalani kehidupan ini?</p>
+                    <input type="radio" name="p13" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p13" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p13" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p13" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p13" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-18" class="rb">
+                    <p>Seberapa sering kamu merasa menikmati apa yang terjadi dalam kehidupan ini?</p>
+                    <input type="radio" name="p14" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p14" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p14" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p14" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p14" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-19" class="rb">
+                    <p>Seberapa sering kamu merasa bersyukur dalam melakukan aktivitas sehari-hari?</p>
+                    <input type="radio" name="p15" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p15" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p15" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p15" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p15" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-20" class="rb">
+                    <p>Seberapa sering kamu merasa mempunyai semangat dalam melakukan aktivitas sehari-hari?</p>
+                    <input type="radio" name="p16" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p16" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p16" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p16" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p16" value="5">
+                    <label for="">5</label>
+                </div>
+            </div>
+            <div class="rb-box">
+                <div id="rb-21" class="rb">
+                    <h3>Kondisi emosional (Emotional ties)</h3>
+                </div>
+                <div id="rb-22" class="rb">
+                    <p>Seberapa sering kamu mendapatkan motivasi?</p>
+                    <input type="radio" name="p17" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p17" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p17" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p17" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p17" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-23" class="rb">
+                    <p>Seberapa sering kamu merasakan kepedulian orang terdekat?</p>
+                    <input type="radio" name="p18" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p18" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p18" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p18" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p18" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-24" class="rb">
+                    <p>Seberapa sering kamu merasakan ketergantungan dengan orang terdekat?</p>
+                    <input type="radio" name="p19" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p19" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p19" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p19" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p19" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-25" class="rb">
+                    <p>Seberapa sering kamu memiliki kepercayaan dengan orang terdekat?</p>
+                    <input type="radio" name="p20" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p20" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p20" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p20" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p20" value="5">
+                    <label for="">5</label>
+                </div>
+            </div>
+            <div class="rb-box">
+                <div id="rb-26" class="rb">
+                    <h3>Adanya perasaan positif secara umum (General positive effect)</h3>
+                </div>
+                <div id="rb-27" class="rb">
+                    <p>Seberapa sering kamu merasa bahagia ketika bisa membuat orangtuamu bangga?</p>
+                    <input type="radio" name="p21" value="1">
+                    <label for="">1</label>
+                    <input type="radio" name="p21" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p21" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p21" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p21" value="5">
+                    <label for="">5</label>
+                </div>
+                <div id="rb-28" class="rb">
+                    <p>Seberapa sering kamu merasa semua hal yang terjadi di hidup kamu merupakan pengalaman yang menyenangkan?</p>
+                    <input type="radio" name="p22" value="1" required>
+                    <label for="">1</label>
+                    <input type="radio" name="p22" value="2">
+                    <label for="">2</label>
+                    <input type="radio" name="p22" value="3">
+                    <label for="">3</label>
+                    <input type="radio" name="p22" value="4">
+                    <label for="">4</label>
+                    <input type="radio" name="p22" value="5">
+                    <label for="">5</label>
+                </div>
             </div>
         </div>
+        <span class="title">Coping Mechanism</span>
         <div class="tab">
-            <span class="title">Coping Mechanism</span>
+            <div class="cops">
+                <label for="coping">Kegiatan berikut ini yang paling efektif mengatasi jika saya mengalami masalah kesehatan mental</label>
+                <select id="coping" name="coping" required onchange="showInputField()">
+                    <option value="" selected hidden>- select -</option>
+                    <option value="Konsultasi dengan Psikiater">Konsultasi dengan Psikiater</option>
+                    <option value="Mensyukuri keadaan">Mensyukuri keadaan</option>
+                    <option value="Berpikir positif">Berpikir positif</option>
+                    <option value="Menyalurkan hobi">Menyalurkan hobi</option>
+                    <option value="Olahraga">Olahraga</option>
+                    <option value="Makan makanan sehat">Makan makanan sehat</option>
+                    <option value="Liburan">Liburan</option>
+                    <option value="Terbuka kepada seseorang">Terbuka kepada seseorang</option>
+                    <option value="Istirahat yang cukup">Istirahat yang cukup</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+            <div class="otherCoping" id="otherCoping">
+                <label for="otherCoping">Ketikkan lainnya di sini:</label>
+                <input type="text" id="otherCoping" name="otherCoping">
+            </div>
         </div>
-        <div style="overflow:auto;">
-            <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <!-- <div class="btn" style="float:right;">
+            <div style="overflow:auto;">
+                <div>
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button type="button" id="submitBtn" onclick="validateForm()">Submit</button>
+                </div>
+            </div>
+        </div> -->
+        <div class="btn" style="float:right;">
+            <div style="overflow:auto;">
+                <div>
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
             </div>
         </div>
     </form>
+    <!-- ajax -->
     <script>
         $(function() {
             // Inisialisasi elemen autocomplete dengan sumber yang kosong
@@ -395,7 +737,8 @@ include 'multiselect/header.php';
             x[n].className += " active";
         }
     </script> -->
-    <script>
+    <!-- gagal -->
+    <!-- <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
 
@@ -435,14 +778,14 @@ include 'multiselect/header.php';
             var x = document.getElementsByClassName("tab");
 
             // Exit the function if any field in the current tab is invalid:
-            if (n == 1 && !validateForm()) return false;
+            if (n === 1 && !validateForm()) return false;
 
             // Hide the current tab and title span:
             x[currentTab].style.display = "none";
             document.getElementsByClassName("title")[currentTab].style.display = "none";
 
             // Increase or decrease the current tab by 1:
-            currentTab = currentTab + n;
+            currentTab += n;
 
             // if you have reached the end of the form...
             if (currentTab >= x.length) {
@@ -454,6 +797,7 @@ include 'multiselect/header.php';
             // Otherwise, display the correct tab and title span:
             showTab(currentTab);
         }
+
 
         function validateForm() {
             // This function deals with validation of the form fields
@@ -493,6 +837,256 @@ include 'multiselect/header.php';
 
             //... and adds the "active" class on the current step:
             x[n].className += " active";
+        }
+    </script> -->
+    <!-- <script>
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+        showTab(currentTab); // Display the current tab
+
+        function showTab(n) {
+            // This function will display the specified tab of the form...
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "";
+            //... and fix the Previous/Next buttons:
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            //... and run a function that will display the correct step indicator:
+            fixStepIndicator(n)
+        }
+
+        function nextPrev(n) {
+            // This function will figure out which tab to display
+            var x = document.getElementsByClassName("tab");
+            // Exit the function if any field in the current tab is invalid:
+            if (n == 1 && !validateForm()) return false;
+            // Hide the current tab:
+            x[currentTab].style.display = "none";
+            // Increase or decrease the current tab by 1:
+            currentTab = currentTab + n;
+            // if you have reached the end of the form...
+            if (currentTab >= x.length) {
+                // ... the form gets submitted:
+                document.getElementById("regForm").submit();
+                return false;
+            }
+            // Otherwise, display the correct tab:
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+            // This function deals with validation of the form fields
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            // A loop that checks every input field in the current tab:
+            for (i = 0; i < y.length; i++) {
+                // If a field is empty...
+                if (y[i].value == "") {
+                    // add an "invalid" class to the field:
+                    y[i].className += " invalid";
+                    // and set the current valid status to false
+                    valid = false;
+                }
+            }
+            // If the valid status is true, mark the step as finished and valid:
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid; // return the valid status
+        }
+
+        function fixStepIndicator(n) {
+            // This function removes the "active" class of all steps...
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            //... and adds the "active" class on the current step:
+            x[n].className += " active";
+        }
+    </script> -->
+    <!-- allert oke -->
+    <script>
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+        showTab(currentTab); // Display the current tab
+
+        function showTab(n) {
+            // This function will display the specified tab of the form...
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "";
+            var titleSpans = document.getElementsByClassName("title");
+            // Hide all tabs and title spans
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                titleSpans[i].style.display = "none";
+            }
+            // Display the current tab and title span
+            x[n].style.display = "flex";
+            titleSpans[n].style.display = "inline";
+
+            //... and fix the Previous/Next buttons:
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            //... and run a function that will display the correct step indicator:
+            fixStepIndicator(n)
+        }
+
+        function nextPrev(n) {
+            // This function will figure out which tab to display
+            var x = document.getElementsByClassName("tab");
+            // Exit the function if any field in the current tab is invalid:
+            if (n == 1 && !validateForm()) return false;
+            // Hide the current tab:
+            x[currentTab].style.display = "none";
+            document.getElementsByClassName("title")[currentTab].style.display = "none";
+            // Increase or decrease the current tab by 1:
+            currentTab = currentTab + n;
+            // if you have reached the end of the form...
+            if (currentTab >= x.length) {
+                // ... the form gets submitted:
+                document.getElementById("form").submit();
+                return false;
+            }
+            // Otherwise, display the correct tab:
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+            // This function deals with validation of the form fields
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input, select, textarea");
+            // A loop that checks every input field in the current tab:
+            for (i = 0; i < y.length; i++) {
+                // If a field is empty...
+                if (y[i].value == "") {
+                    // add an "invalid" class to the field:
+                    y[i].className += " invalid";
+                    // and set the current valid status to false
+                    valid = false;
+                }
+            }
+            // If the valid status is true, mark the step as finished and valid:
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid; // return the valid status
+        }
+
+        function fixStepIndicator(n) {
+            // This function removes the "active" class of all steps...
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            //... and adds the "active" class on the current step:
+            x[n].className += " active";
+        }
+    </script>
+    <script>
+        function showAlert(message) {
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'custom-alert';
+            alertDiv.textContent = message;
+            document.body.appendChild(alertDiv);
+            setTimeout(function() {
+                alertDiv.parentNode.removeChild(alertDiv);
+            }, 3000); // Remove the alert after 3 seconds
+        }
+
+        function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].querySelectorAll("input, select");
+
+            // Check if it's the last tab
+            var isLastTab = currentTab === x.length - 1;
+
+            for (i = 0; i < y.length; i++) {
+                // Exclude "otherCoping" class and, if it's the last tab, exclude validation for all inputs
+                if (!(y[i].classList.contains("otherCoping") || (isLastTab && y[i].tagName.toLowerCase() === "input"))) {
+                    if (y[i].value == "") {
+                        y[i].classList.add("invalid");
+                        valid = false;
+                    }
+                }
+            }
+
+            if (!valid) {
+                showAlert("Please fill in all required fields.");
+            }
+
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+
+            return valid;
+        }
+    </script>
+
+    <!-- 
+    <script>
+        function showAlert(message) {
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'custom-alert';
+            alertDiv.textContent = message;
+            document.body.appendChild(alertDiv);
+            setTimeout(function() {
+                alertDiv.parentNode.removeChild(alertDiv);
+            }, 3000); // Remove the alert after 3 seconds
+        }
+
+        function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].querySelectorAll("input, select");
+
+            for (i = 0; i < y.length; i++) {
+                if (y[i].value == "") {
+                    y[i].classList.add("invalid");
+                    valid = false;
+                }
+            }
+
+            if (!valid) {
+                showAlert("Please fill in all required fields.");
+            }
+
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+
+            return valid;
+        }
+    </script> -->
+    <script>
+        function showInputField() {
+            var selectElement = document.getElementById('coping');
+            var otherInput = document.getElementById('otherCoping');
+
+            if (selectElement.value === 'Lainnya') {
+                otherInput.classList.remove('hidden');
+                otherInput.required = true;
+            } else {
+                otherInput.classList.add('hidden');
+                otherInput.required = false;
+            }
         }
     </script>
 

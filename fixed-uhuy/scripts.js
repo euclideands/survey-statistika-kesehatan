@@ -21,3 +21,17 @@ $(function () {
  
  });
 });
+
+// function showInputField() {
+// 	var selectElement = document.getElementById('coping');
+// 	var otherInput = document.getElementById('otherInput');
+
+// 	if (selectElement.value === 'Lainnya') {
+// 		otherInput.classList.remove('hidden');
+// 		otherInput.setAttribute('required', true);
+// 	} else {
+// 		otherInput.classList.add('hidden');
+// 		otherInput.removeAttribute('required');
+// 		otherInput.value = 'ya';
+// 	}
+// }

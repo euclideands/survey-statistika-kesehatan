@@ -49,7 +49,7 @@ min-width: 300px; */
     border-radius: 100px;
 }
 
-.header{
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,7 +91,6 @@ min-width: 300px; */
 
     .header h1 {
         margin-bottom: 10px;
-        text-align: left;
     }
 
     .bullet {
@@ -223,7 +222,6 @@ button:hover {
 
 .custom-alert {
     position: fixed;
-    text-align: center;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
@@ -301,21 +299,20 @@ h2{
     margin-bottom: 25px;
 }
 
-.cops,
-.otherCoping{
+.cops{
+    display: flex;
+    flex-direction: column;
     margin: 4px 0;
     margin-left: 25px 25px;
 }
 
-.cops label,
-.otherCoping label{
+.cops label{
     font-size: 14px;
     font-weight: 500;
     color: #2e2e2e;
 }
 
-.cops select,
-.otherCoping input{
+.cops select{
     outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -327,8 +324,7 @@ h2{
     margin: 8px 0;
 }
 
-.cops select:focus,
-.otherCoping input:focus{
+.cops select:focus{
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
 

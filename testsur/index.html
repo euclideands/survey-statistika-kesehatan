@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="function.js"></script> <!-- Add your JavaScript file -->
+  <style>
+    .rb-box {
+      width: 100%;
+      padding: 1.3em;
+      background: #fff;
+      border-radius: .75em;
+      -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.1));
+      filter: drop-shadow(1px 2px 5px rgba(0,0,0,.1));
+      box-shadow: 
+        0 0px 5px rgba(243,49,128,.15),
+        0 0px 4px rgba(0,0,0,.35),
+        0 5px 20px rgba(243,49,128,.25),
+        0 15px 50px rgba(243,49,128,.75);
+    }
+
+    p {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+
+    .rb-tab {
+      display: inline-block;
+      position: relative;
+      padding: 15px;
+      margin-right: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .rb-spot {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: transparent;
+      border: 3px solid #bbbbbb;
+      border-radius: 100%;
+      transition: ease .5s;
+    }
+
+    .rb-tab input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .rb-tab input:checked + .rb-spot {
+      border: 3px solid #4070f4;
+    }
+
+    .rb-txt {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 10px;
+      color: #2e2e2e;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="rb-box">
+    <p>On a scale of 1 to 5 how cubic are you?</p>
+
+    <label class="rb-tab">
+      <input type="radio" name="cubic" value="1">
+      <div class="rb-spot"></div>
+      <div class="rb-txt">1</div>
+    </label>
+
+    <label class="rb-tab">
+      <input type="radio" name="cubic" value="2">
+      <div class="rb-spot"></div>
+      <div class="rb-txt">2</div>
+    </label>
+
+    <label class="rb-tab">
+      <input type="radio" name="cubic" value="3">
+      <div class="rb-spot"></div>
+      <div class="rb-txt">3</div>
+    </label>
+
+    <label class="rb-tab">
+      <input type="radio" name="cubic" value="4">
+      <div class="rb-spot"></div>
+      <div class="rb-txt">4</div>
+    </label>
+
+    <label class="rb-tab">
+      <input type="radio" name="cubic" value="5">
+      <div class="rb-spot"></div>
+      <div class="rb-txt">5</div>
+    </label>
+    <button class="submit-button">Submit!</button>
+  </div>
+
+</body>
+</html>
